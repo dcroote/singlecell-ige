@@ -1,0 +1,13 @@
+name: py35workflow
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.5
+  - snakemake
+  - pandas>=0.22.0
+  - STAR=2.5.3a
+  - htseq
+  - bowtie2
+  - basic=1.4.0
+  - blast=2.7.1

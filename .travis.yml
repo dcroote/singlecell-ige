@@ -1,0 +1,30 @@
+sudo: required
+
+services:
+    - docker
+
+language: python
+python:
+  # this dictates the conda python version
+  - "3.5"
+
+install:
+  - sudo apt-get update
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda config --add channels defaults
+  - conda config --add channels conda-forge
+  - conda config --add channels bioconda
+  - conda create -q -n snakemake_env python=$TRAVIS_PYTHON_VERSION snakemake-minimal pandas
+
+script:
+  - source activate snakemake_env
+  # run the assembly workflow on a cell in the .test directory
+  - snakemake --use-conda --directory .test combined_assemblies.tsv
+  # output should contain functional heavy and light chain assemblies
+  - python .test/check_assemblies.py .test/combined_assemblies.tsv

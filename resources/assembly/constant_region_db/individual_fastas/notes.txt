@@ -1,0 +1,4 @@
+The following J-C fasta entries have been removed to avoid constant region misassignment:
+
+imgt_human_IGLC.fasta:>AP001025|IGLJ-C/OR18*01|Homo_sapiens|ORF|J-C-REGION|AP001025:130863..131211|349 nt|2| | | | |349+0=349| | |
+imgt_human_IGLC.fasta:>J00255|IGLJ-C/OR18*02|Homo_sapiens|P|J-C-REGION| |349 nt|2| | | | |349+0=349| | |

@@ -1,0 +1,17 @@
+*.pyc
+.snakemake
+resources/assembly/*img
+logs/
+resources/star/star_genome*
+resources/star/Homo*.fa
+resources/star/Mus*.fa
+resources/star/Homo*.gtf
+resources/star/Mus*.gtf
+resources/star/*.gz
+.test/*/*/basic
+.test/*/*/star
+.test/*/*/htseq
+Log.out
+combined_assemblies.tsv
+combined_counts.tsv
+
