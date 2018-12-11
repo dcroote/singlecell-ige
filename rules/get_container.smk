@@ -15,7 +15,7 @@ if config['container_type'] == 'docker':
         resources:
             mem_mb=10000
         shell:
-            "docker pull kleinstein/immcantation:1.10.2 && "
+            "docker pull kleinstein/immcantation:2.6.0 && "
             "echo $(date) > {output}"
 else:
     # singularity
@@ -24,7 +24,7 @@ else:
             IgBLAST execution and output parsing
         """
         output:
-            '{}/resources/assembly/immcantation-1.10.2.img'.format(workflow.basedir)
+            '{}/resources/assembly/immcantation-2.6.0.img'.format(workflow.basedir)
         threads: 1
         params:
             name="container_pull",
@@ -37,4 +37,4 @@ else:
             "cd $(dirname {output}) && "
             "img=$(basename {output}) && "
             "singularity pull --name $img "
-            "docker://kleinstein/immcantation:1.10.2"
+            "docker://kleinstein/immcantation:2.6.0"

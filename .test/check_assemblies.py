@@ -11,9 +11,9 @@ def main(infile):
     assert df.shape[0] == 4
 
     assert df.groupby('SAMPLENAME').SEQUENCE_ID.apply(
-        lambda x: \
-        x.shape[0] ==2 and \
-        x.str.contains("heavy").sum() == 1 and \
+        lambda x:
+        x.shape[0] == 2 and
+        x.str.contains("heavy").sum() == 1 and
         x.str.contains("light").sum() == 1
     ).all()
 

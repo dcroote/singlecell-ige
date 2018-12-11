@@ -88,7 +88,7 @@ rule igblast_changeo:
                 assembly_name = os.path.basename(str(input.assembly))
                 # run docker with current user:group (avoids permissions issues)
                 shell(  'docker run -v {abs_dir_path}:/data:z -u `stat -c "%u:%g" $PWD` '
-                        'kleinstein/immcantation:1.10.2 changeo-igblast '
+                        'kleinstein/immcantation:2.6.0 changeo-igblast '
                         '-o /data -s /data/{assembly_name} -n igblast '
                         '-p 1 -g {config[species]} -t ig')
             else:
