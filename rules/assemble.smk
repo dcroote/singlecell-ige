@@ -13,7 +13,7 @@ rule basic:
     threads: 2
     params:
         name="basic",
-        partition="quake,owners",
+        partition=config['partition'],
         scratch=config['scratch'] if 'scratch' in config and config['scratch'] else '$PWD'
     resources:
         mem_mb=lambda wildcards, attempt: 15000*attempt
@@ -41,7 +41,7 @@ rule blast_constant_region:
     threads: 1
     params:
         name="blast_iso",
-        partition="quake,owners",
+        partition=config['partition'],
         ig_receptor='IG' if config['receptor'] == 'BCR' else 'TR',
         const_db_dir=os.path.join(workflow.basedir,
                                   'resources/assembly/constant_region_db')
@@ -70,7 +70,7 @@ rule igblast_changeo:
     threads: 1
     params:
         name='igblast',
-        partition="quake,owners",
+        partition=config['partition'],
         container_type=config['container_type'],
         singularity_pre_cmd="" if 'singularity_pre_cmd' not in config else config['singularity_pre_cmd']
     resources:
@@ -110,7 +110,7 @@ rule merge_changeo_constant:
     threads: 1
     params:
         name="merge_changeo_constant",
-        partition="quake,owners",
+        partition=config['partition'],
         scripts_dir=os.path.join(workflow.basedir, 'scripts')
     resources:
         mem_mb=5300
@@ -133,7 +133,7 @@ rule combine_assemblies:
     threads: 1
     params:
         name="combine_assemblies",
-        partition="quake,owners",
+        partition=config['partition'],
         scripts_dir=os.path.join(workflow.basedir, 'scripts')
     resources:
         mem_mb=5000

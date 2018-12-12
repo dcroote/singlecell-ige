@@ -1,4 +1,4 @@
-# snakemake rules for pulling the immcantation image dpeending on 
+# snakemake rules for pulling the immcantation image depending on
 # whether docker or singularity is being used
 
 if config['container_type'] == 'docker':
@@ -11,7 +11,7 @@ if config['container_type'] == 'docker':
         threads: 1
         params:
             name="container_pull",
-            partition="quake,owners",
+            partition=config['partition'],
         resources:
             mem_mb=10000
         shell:
@@ -28,7 +28,7 @@ else:
         threads: 1
         params:
             name="container_pull",
-            partition="quake,owners",
+            partition=config['partition'],
             singularity_pre_cmd="" if 'singularity_pre_cmd' not in config else config['singularity_pre_cmd']
         resources:
             mem_mb=10000

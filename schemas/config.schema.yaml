@@ -20,6 +20,9 @@ properties:
       - human
       - mouse
 
+  partition:
+    type: string
+
   receptor:
     enum:
       - BCR

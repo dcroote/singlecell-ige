@@ -16,6 +16,9 @@ container_type: docker
 # human or mouse
 species: human
 
+# partition (for cluster computing)
+partition: "quake,owners"
+
 # ----------------------------------------
 # Assembly
 

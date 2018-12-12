@@ -11,7 +11,7 @@ rule get_genome_fasta_and_gtf:
     threads: 1
     params:
         name="wget_files",
-        partition="quake,owners",
+        partition=config['partition'],
         fasta_url=config['fasta_url'][config['species']],
         fasta_name=config['fasta_name'][config['species']],
         gtf_url=config['gtf_url'][config['species']],
@@ -48,7 +48,7 @@ rule star_genome_generate:
     threads: 12
     params:
         name='star_genome_gen',
-        partition='quake,owners',
+        partition=config['partition'],
         star_read_len=int(config['read_length']) - 1
     resources:
         mem_mb=60000
@@ -88,7 +88,7 @@ rule star:
     threads: 6
     params:
         name='star',
-        partition='quake'
+        partition=config['partition']
     resources:
         mem_mb=30000
     conda:
@@ -125,7 +125,7 @@ rule htseq:
     threads: 1
     params:
         name='htseq',
-        partition='quake,owners'
+        partition=config['partition']
     resources:
         mem_mb=5000
     conda:
@@ -147,7 +147,7 @@ rule combine_counts:
     threads: 1
     params:
         name="combine_counts",
-        partition="quake,owners",
+        partition=config['partition'],
         scripts_dir=os.path.join(workflow.basedir, 'scripts')
     resources:
         mem_mb=5000
