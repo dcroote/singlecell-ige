@@ -1,6 +1,6 @@
 # singlecell-ige
 
-[![Build Status](https://travis-ci.org/dcroote/singlecell-ige)](https://travis-ci.org/dcroote/singlecell-ige)
+[![Build Status](https://travis-ci.org/dcroote/singlecell-ige.svg?branch=master)](https://travis-ci.org/dcroote/singlecell-ige)
 ![Python 3.5](https://img.shields.io/badge/python-3.5-blue.svg)
 
 Alignment and assembly workflows associated with Croote et al. (2018). These workflows were developed to analyze single human B cells isolated from the peripheral blood of food-allergic individuals and assume single-cell RNA-sequencing were data generated using the Smart-seq2 chemistry (10X and drop-seq data will not assemble).
