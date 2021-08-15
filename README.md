@@ -19,7 +19,7 @@ This repository contains two [snakemake](https://snakemake.readthedocs.io/en/sta
 
 2. To launch the workflows, you need a python 3 `conda` environment with `snakemake` and `pandas` installed. This can be created by running the following:
     ```bash
-    conda create -q -n snakemake_env python=3.5 snakemake-minimal pandas
+    conda create -q -n snakemake_env python=3.5 snakemake-minimal=5.2.4 pandas
     ```
     The environment can then be activated by running: `source activate snakemake_env`.
 
